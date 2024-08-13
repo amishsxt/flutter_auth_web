@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_auth/views/auth/login_screen.dart';
+import 'package:web_auth/views/auth/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,12 +8,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
-        home: const LoginScreen());
+      title: 'Flutter Demo',
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
+      home: AuthScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
