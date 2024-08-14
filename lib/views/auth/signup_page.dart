@@ -13,6 +13,11 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  String? nameError;
+  String? emailError;
+  String? passwordError;
+
   bool _obscureText = true;
 
   void _toggleVisibility() {
@@ -50,7 +55,6 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
     );
-    ;
   }
 
   Widget rightCard() {
@@ -113,6 +117,7 @@ class _SignupPageState extends State<SignupPage> {
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
+                      errorText: nameError, // Display the name error
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
@@ -139,6 +144,7 @@ class _SignupPageState extends State<SignupPage> {
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
+                      errorText: emailError, // Display the email error
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
@@ -166,6 +172,7 @@ class _SignupPageState extends State<SignupPage> {
                   controller: passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
+                      errorText: passwordError, // Display the password error
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
@@ -259,7 +266,42 @@ class _SignupPageState extends State<SignupPage> {
         )));
   }
 
-  void _handleSignUp() {}
+  void _handleSignUp() {
+    setState(() {
+      // Clear previous errors
+      nameError = null;
+      emailError = null;
+      passwordError = null;
+
+      // Validate name
+      if (nameController.text.isEmpty) {
+        nameError = 'Name is required';
+      }
+
+      // Validate email
+      if (emailController.text.isEmpty) {
+        emailError = 'Email is required';
+      } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+          .hasMatch(emailController.text)) {
+        emailError = 'Enter a valid email address';
+      }
+
+      // Validate password
+      if (passwordController.text.isEmpty) {
+        passwordError = 'Password is required';
+      } else if (passwordController.text.length < 8) {
+        passwordError = 'Password must be at least 8 characters long';
+      }
+    });
+
+    // If there are no errors, proceed with the signup logic
+    if (nameError == null && emailError == null && passwordError == null) {
+      print('Name: ${nameController.text}');
+      print('Email: ${emailController.text}');
+      print('Password: ${passwordController.text}');
+      // You can now proceed to send the data to your backend or next step
+    }
+  }
 
   void _navigateToLoginPage() {
     Navigator.pushNamed(context, '/loginpage');
