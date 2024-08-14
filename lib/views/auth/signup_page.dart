@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:web_auth/theme/colors.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:web_auth/theme/colors.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool _obscureText = true;
@@ -49,9 +50,10 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+    ;
   }
 
-  Widget leftCard() {
+  Widget rightCard() {
     return Container(
       decoration: BoxDecoration(
           color: AppColors.white, borderRadius: BorderRadius.circular(8)),
@@ -71,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 15.0),
                   child: Text(
-                    "Welcome Back",
+                    "Get Started",
                     style: TextStyle(
                         color: AppColors.black,
                         fontFamily: "Roboto",
@@ -80,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Text(
-                  "Great to see you again",
+                  "Let's create your account",
                   style: TextStyle(
                       color: AppColors.grey,
                       fontFamily: "Roboto",
@@ -96,6 +98,32 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   height: 25.0,
+                ),
+                Text(
+                  "Name",
+                  style: TextStyle(
+                      color: AppColors.black,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12.0),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: AppColors.myGreen)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      counterText: ''),
+                  maxLength: 50,
+                  keyboardType: TextInputType.name,
+                  style: TextStyle(color: AppColors.black),
+                ),
+                const SizedBox(
+                  height: 15.0,
                 ),
                 Text(
                   "Email",
@@ -159,31 +187,13 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 15.0,
                 ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: TextButton(
-                    onPressed: _handleForgotPassword,
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size(0, 20),
-                    ),
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                          color: AppColors.black,
-                          fontFamily: "Roboto",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12.0),
-                    ),
-                  ),
-                ),
                 SizedBox(
                   height: 15.0,
                 ),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: _handleLogin,
+                    onPressed: _handleSignUp,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.myGreen,
                       shape: RoundedRectangleBorder(
@@ -192,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.symmetric(vertical: 15.0),
                     ),
                     child: Text(
-                      "Log In",
+                      "Sign Up",
                       style: TextStyle(
                           color: AppColors.white,
                           fontFamily: "Roboto",
@@ -207,7 +217,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account? ",
+                      "Already have an account? ",
                       style: TextStyle(
                           color: AppColors.grey,
                           fontFamily: "Roboto",
@@ -215,13 +225,13 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 12.0),
                     ),
                     TextButton(
-                      onPressed: _navigateToSignUpPage,
+                      onPressed: _navigateToLoginPage,
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         minimumSize: Size(0, 20),
                       ),
                       child: Text(
-                        "SignUp",
+                        "LogIn",
                         style: TextStyle(
                             color: AppColors.black,
                             fontFamily: "Roboto",
@@ -239,21 +249,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget rightCard() {
+  Widget leftCard() {
     return Container(
         decoration: BoxDecoration(
             color: AppColors.myGreen, borderRadius: BorderRadius.circular(8)),
         child: Center(
             child: SvgPicture.asset(
-          "assets/images/login.svg",
+          "assets/images/signup.svg",
         )));
   }
 
-  void _handleLogin() {}
+  void _handleSignUp() {}
 
-  void _navigateToSignUpPage() {
-    Navigator.pushNamed(context, '/signuppage');
+  void _navigateToLoginPage() {
+    Navigator.pushNamed(context, '/loginpage');
   }
-
-  void _handleForgotPassword() {}
 }

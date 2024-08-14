@@ -76,6 +76,7 @@ flutter:
   # example:
   assets:
     - assets/images/login.svg
+    - assets/images/signup.svg
     - assets/fonts/roboto_regular.ttf
     - assets/fonts/roboto_medium.ttf
     - assets/fonts/roboto_bold.ttf
