@@ -160,9 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   alignment: Alignment.topRight,
                   child: TextButton(
-                    onPressed: () {
-                      // Handle "Forgot Password?" action
-                    },
+                    onPressed: _handleForgotPassword,
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                       minimumSize: Size(0, 20),
@@ -172,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                           color: AppColors.black,
                           fontFamily: "Roboto",
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.bold,
                           fontSize: 12.0),
                     ),
                   ),
@@ -199,6 +197,37 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account? ",
+                      style: TextStyle(
+                          color: AppColors.grey,
+                          fontFamily: "Roboto",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12.0),
+                    ),
+                    TextButton(
+                      onPressed: _handleSignUp,
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size(0, 20),
+                      ),
+                      child: Text(
+                        "SignUp",
+                        style: TextStyle(
+                            color: AppColors.black,
+                            fontFamily: "Roboto",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12.0),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
@@ -219,4 +248,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _handleLogin() {}
+
+  void _handleSignUp() {}
+
+  void _handleForgotPassword() {}
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_auth/theme/colors.dart';
 import 'package:web_auth/views/auth/login_page.dart';
 
 void main() {
@@ -12,8 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
+      theme:
+          ThemeData.dark().copyWith(scaffoldBackgroundColor: AppColors.bgColor),
       home: Scaffold(
+        backgroundColor: AppColors.grey,
         body: LoginPage(),
       ),
       debugShowCheckedModeBanner: false,
