@@ -30,14 +30,14 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Center(
           child: SizedBox.expand(
             child: Container(
               decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(8.0)),
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -69,13 +69,13 @@ class _SignupPageState extends State<SignupPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.chat,
                   color: AppColors.myGreen,
                   size: 50.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
+                const Padding(
+                  padding: EdgeInsets.only(top: 15.0),
                   child: Text(
                     "Get Started",
                     style: TextStyle(
@@ -85,7 +85,7 @@ class _SignupPageState extends State<SignupPage> {
                         fontSize: 22.0),
                   ),
                 ),
-                Text(
+                const Text(
                   "Let's create your account",
                   style: TextStyle(
                       color: AppColors.grey,
@@ -96,7 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                 const SizedBox(height: 5.0),
                 const Divider(thickness: 0.3, color: Colors.grey),
                 const SizedBox(height: 25.0),
-                Text(
+                const Text(
                   "Name",
                   style: TextStyle(
                       color: AppColors.black,
@@ -111,19 +111,19 @@ class _SignupPageState extends State<SignupPage> {
                   controller: nameController,
                   decoration: InputDecoration(
                       errorText: nameError, // Display the name error
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                       counterText: ''),
                   maxLength: 50,
                   keyboardType: TextInputType.name,
-                  style: TextStyle(color: AppColors.black),
+                  style: const TextStyle(color: AppColors.black),
                 ),
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text(
+                const Text(
                   "Email",
                   style: TextStyle(
                       color: AppColors.black,
@@ -138,19 +138,19 @@ class _SignupPageState extends State<SignupPage> {
                   controller: emailController,
                   decoration: InputDecoration(
                       errorText: emailError, // Display the email error
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                       counterText: ''),
                   maxLength: 50,
                   keyboardType: TextInputType.emailAddress,
-                  style: TextStyle(color: AppColors.black),
+                  style: const TextStyle(color: AppColors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
-                Text(
+                const Text(
                   "Password",
                   style: TextStyle(
                       color: AppColors.black,
@@ -158,7 +158,7 @@ class _SignupPageState extends State<SignupPage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 12.0),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextField(
@@ -166,7 +166,7 @@ class _SignupPageState extends State<SignupPage> {
                   obscureText: _obscureText,
                   decoration: InputDecoration(
                       errorText: passwordError, // Display the password error
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
@@ -182,12 +182,12 @@ class _SignupPageState extends State<SignupPage> {
                       )),
                   maxLength: 50,
                   keyboardType: TextInputType.visiblePassword,
-                  style: TextStyle(color: AppColors.black),
+                  style: const TextStyle(color: AppColors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 SizedBox(
@@ -199,9 +199,9 @@ class _SignupPageState extends State<SignupPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
                     ),
-                    child: Text(
+                    child: const Text(
                       "Sign Up",
                       style: TextStyle(
                           color: AppColors.white,
@@ -210,13 +210,13 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Already have an account? ",
                       style: TextStyle(
                           color: AppColors.grey,
@@ -228,9 +228,9 @@ class _SignupPageState extends State<SignupPage> {
                       onPressed: _navigateToLoginPage,
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
-                        minimumSize: Size(0, 20),
+                        minimumSize: const Size(0, 20),
                       ),
-                      child: Text(
+                      child: const Text(
                         "LogIn",
                         style: TextStyle(
                             color: AppColors.black,
@@ -303,11 +303,11 @@ class _SignupPageState extends State<SignupPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Signup Successful"),
-          content: Text("Your account has been created successfully!"),
+          title: const Text("Signup Successful"),
+          content: const Text("Your account has been created successfully!"),
           actions: [
             TextButton(
-              child: Text("OK"),
+              child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
               },

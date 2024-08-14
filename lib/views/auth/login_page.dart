@@ -62,13 +62,13 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.chat,
                 color: AppColors.myGreen,
                 size: 50.0,
               ),
               const SizedBox(height: 15.0),
-              Text(
+              const Text(
                 "Welcome Back",
                 style: TextStyle(
                     color: AppColors.black,
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 5.0),
               const Divider(thickness: 0.3, color: Colors.grey),
               const SizedBox(height: 25.0),
-              Text(
+              const Text(
                 "Email",
                 style: TextStyle(
                     color: AppColors.black,
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.myGreen),
                   ),
                   border: OutlineInputBorder(
@@ -110,10 +110,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 maxLength: 50,
                 keyboardType: TextInputType.emailAddress,
-                style: TextStyle(color: AppColors.black),
+                style: const TextStyle(color: AppColors.black),
               ),
               const SizedBox(height: 15.0),
-              Text(
+              const Text(
                 "Password",
                 style: TextStyle(
                     color: AppColors.black,
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordController,
                 obscureText: _obscureText,
                 decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.myGreen),
                   ),
                   border: OutlineInputBorder(
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 maxLength: 50,
                 keyboardType: TextInputType.visiblePassword,
-                style: TextStyle(color: AppColors.black),
+                style: const TextStyle(color: AppColors.black),
               ),
               const SizedBox(height: 15.0),
               Container(
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(0, 20),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Forgot Password?",
                     style: TextStyle(
                         color: AppColors.black,
@@ -177,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 15.0),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Log In",
                     style: TextStyle(
                         color: AppColors.white,
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't have an account? ",
                     style: TextStyle(
                         color: AppColors.grey,
@@ -204,7 +204,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.zero,
                       minimumSize: const Size(0, 20),
                     ),
-                    child: Text(
+                    child: const Text(
                       "SignUp",
                       style: TextStyle(
                           color: AppColors.black,
@@ -270,11 +270,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Login Successful"),
-          content: Text("You have logged in successfully!"),
+          title: const Text("Login Successful"),
+          content: const Text("You have logged in successfully!"),
           actions: [
             TextButton(
-              child: Text("OK"),
+              child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
