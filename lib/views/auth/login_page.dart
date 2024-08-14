@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   counterText: '',
-                  errorText: emailError, // Display error text
+                  errorText: emailError,
                 ),
                 maxLength: 50,
                 keyboardType: TextInputType.emailAddress,
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: _toggleVisibility,
                   ),
-                  errorText: passwordError, // Display error text
+                  errorText: passwordError,
                 ),
                 maxLength: 50,
                 keyboardType: TextInputType.visiblePassword,
