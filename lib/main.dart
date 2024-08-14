@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_auth/views/auth/auth_screen.dart';
+import 'package:web_auth/views/auth/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
-      home: AuthScreen(),
+      home: Scaffold(
+        body: LoginPage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
