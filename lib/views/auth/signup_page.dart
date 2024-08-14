@@ -33,23 +33,26 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.all(15.0),
         child: Center(
           child: SizedBox.expand(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(8.0)),
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(child: leftCard()),
-                  Container(
-                    width: 5.0,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                // Check if the available width is greater than a threshold
+                bool isWideScreen = constraints.maxWidth > 600;
+
+                return Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(8.0)),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (isWideScreen) Expanded(child: leftCard()),
+                      const SizedBox(width: 5.0),
+                      Expanded(child: rightCard())
+                    ],
                   ),
-                  Expanded(
-                    child: rightCard(),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ),
@@ -110,7 +113,7 @@ class _SignupPageState extends State<SignupPage> {
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
-                      errorText: nameError, // Display the name error
+                      errorText: nameError,
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
@@ -137,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
-                      errorText: emailError, // Display the email error
+                      errorText: emailError,
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(
@@ -165,7 +168,7 @@ class _SignupPageState extends State<SignupPage> {
                   controller: passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
-                      errorText: passwordError, // Display the password error
+                      errorText: passwordError,
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: AppColors.myGreen)),
                       border: OutlineInputBorder(

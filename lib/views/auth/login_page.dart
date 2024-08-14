@@ -31,19 +31,27 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(15.0),
         child: Center(
           child: SizedBox.expand(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(8.0)),
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(child: rightCard()),
-                  const SizedBox(width: 5.0),
-                  Expanded(child: leftCard()),
-                ],
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                // Check if the available width is greater than a threshold
+                bool isWideScreen = constraints.maxWidth >
+                    600; // You can adjust the threshold as needed
+
+                return Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(8.0)),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(child: leftCard()),
+                      const SizedBox(width: 5.0),
+                      if (isWideScreen) Expanded(child: rightCard())
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ),
@@ -51,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget rightCard() {
+  Widget leftCard() {
     return Container(
       decoration: BoxDecoration(
           color: AppColors.white, borderRadius: BorderRadius.circular(8)),
@@ -222,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget leftCard() {
+  Widget rightCard() {
     return Container(
       decoration: BoxDecoration(
           color: AppColors.myGreen, borderRadius: BorderRadius.circular(8)),
