@@ -93,16 +93,9 @@ class _SignupPageState extends State<SignupPage> {
                       fontWeight: FontWeight.w300,
                       fontSize: 12.0),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Container(
-                    height: 0.2,
-                    color: AppColors.grey,
-                  ),
-                ),
-                Container(
-                  height: 25.0,
-                ),
+                const SizedBox(height: 5.0),
+                const Divider(thickness: 0.3, color: Colors.grey),
+                const SizedBox(height: 25.0),
                 Text(
                   "Name",
                   style: TextStyle(
@@ -299,8 +292,30 @@ class _SignupPageState extends State<SignupPage> {
       print('Name: ${nameController.text}');
       print('Email: ${emailController.text}');
       print('Password: ${passwordController.text}');
-      // You can now proceed to send the data to your backend or next step
+      print('Signup Successful');
+
+      _showSignUpSuccessDialog();
     }
+  }
+
+  void _showSignUpSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Signup Successful"),
+          content: Text("Your account has been created successfully!"),
+          actions: [
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _navigateToLoginPage() {

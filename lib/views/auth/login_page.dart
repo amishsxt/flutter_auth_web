@@ -84,8 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.w300,
                     fontSize: 12.0),
               ),
-              const SizedBox(height: 8.0),
-              const Divider(color: Colors.grey),
+              const SizedBox(height: 5.0),
+              const Divider(thickness: 0.3, color: Colors.grey),
               const SizedBox(height: 25.0),
               Text(
                 "Email",
@@ -260,7 +260,29 @@ class _LoginPageState extends State<LoginPage> {
       print('Email: ${emailController.text}');
       print('Password: ${passwordController.text}');
       print('Login Successful');
+
+      _showSuccessDialog();
     }
+  }
+
+  void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Login Successful"),
+          content: Text("You have logged in successfully!"),
+          actions: [
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _navigateToSignUpPage() {
