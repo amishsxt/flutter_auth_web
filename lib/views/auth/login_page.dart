@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_auth/theme/colors.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -211,7 +212,10 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
         decoration: BoxDecoration(
             color: AppColors.myGreen, borderRadius: BorderRadius.circular(8)),
-        child: Center(child: Text('Container 2')));
+        child: Center(
+            child: SvgPicture.asset(
+          "assets/images/login.svg",
+        )));
   }
 
   void _handleLogin() {}
