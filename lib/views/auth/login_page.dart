@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const Icon(
                 Icons.chat,
-                color: AppColors.myGreen,
+                color: AppColors.aquaGreen,
                 size: 50.0,
               ),
               const SizedBox(height: 15.0),
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: emailController,
                 decoration: InputDecoration(
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.myGreen),
+                    borderSide: BorderSide(color: AppColors.aquaGreen),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: _obscureText,
                 decoration: InputDecoration(
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.myGreen),
+                    borderSide: BorderSide(color: AppColors.aquaGreen),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   onPressed: _handleLogin,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.myGreen,
+                    backgroundColor: AppColors.aquaGreen,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
@@ -233,7 +233,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget rightCard() {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.myGreen, borderRadius: BorderRadius.circular(8)),
+          color: AppColors.aquaGreen, borderRadius: BorderRadius.circular(8)),
       child: Center(
           child: SvgPicture.asset(
         "assets/images/login.svg",

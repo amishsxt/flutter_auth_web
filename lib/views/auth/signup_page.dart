@@ -74,7 +74,7 @@ class _SignupPageState extends State<SignupPage> {
               children: [
                 const Icon(
                   Icons.chat,
-                  color: AppColors.myGreen,
+                  color: AppColors.aquaGreen,
                   size: 50.0,
                 ),
                 const Padding(
@@ -115,7 +115,7 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: InputDecoration(
                       errorText: nameError,
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.myGreen)),
+                          borderSide: BorderSide(color: AppColors.aquaGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                       counterText: ''),
@@ -142,7 +142,7 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: InputDecoration(
                       errorText: emailError,
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.myGreen)),
+                          borderSide: BorderSide(color: AppColors.aquaGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                       counterText: ''),
@@ -170,7 +170,7 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: InputDecoration(
                       errorText: passwordError,
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.myGreen)),
+                          borderSide: BorderSide(color: AppColors.aquaGreen)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                       counterText: '',
@@ -198,7 +198,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: ElevatedButton(
                     onPressed: _handleSignUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.myGreen,
+                      backgroundColor: AppColors.aquaGreen,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -255,7 +255,7 @@ class _SignupPageState extends State<SignupPage> {
   Widget leftCard() {
     return Container(
         decoration: BoxDecoration(
-            color: AppColors.myGreen, borderRadius: BorderRadius.circular(8)),
+            color: AppColors.aquaGreen, borderRadius: BorderRadius.circular(8)),
         child: Center(
             child: SvgPicture.asset(
           "assets/images/signup.svg",
